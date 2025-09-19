@@ -1,0 +1,35 @@
+/* ========== SKILLS LIST ========== */
+.skills__list {
+  display: grid; /* Use CSS Grid to arrange skills in rows/columns */
+  grid-template-columns: repeat(
+    3,
+    1fr
+  ); /* Create 3 equal-width columns (1fr = 1 fraction of free space) */
+  row-gap: 5rem; /* Vertical space (gap) between rows = 5rem */
+}
+
+/* Each skill item */
+.skills__item {
+  transition: var(
+    --transition-timing
+  ); /* Apply smooth animation timing from a CSS variable */
+  user-select: none; /* Prevent text from being highlighted when clicked/dragged */
+}
+
+/* The skill title (HTML, CSS, React, etc.) */
+.skills__title {
+  font-size: var(--font-size-38);
+  font-weight: var(--font-weight-semi-bold);
+}
+
+/* The "years of experience" under each title */
+.skills__years {
+  display: inline-block; /* Makes the span behave like a small block (respects margin/padding) */
+  font-size: var(--font-size-20); /* Slightly smaller text than title */
+  margin-top: 1rem; /* Push down from the title for spacing */
+}
+
+/* Hover effect for each skill item */
+.skills__item:hover {
+  text-shadow: 0 0 2px var(--color-green);
+}

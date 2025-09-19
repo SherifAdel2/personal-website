@@ -1,0 +1,18 @@
+.clients__opinions {
+  grid-column: 1 / -1; /* Makes this div span across the full width of the parent grid */
+  font-size: var(--font-size-40); /* Large font for opinions */
+  line-height: 1.7; /* Spacing between lines for readability */
+}
+
+.clients__wrapper {
+  display: flex; /* Place all opinions in a horizontal row */
+  overflow-x: auto; /* Allow horizontal scrolling if content overflows */
+  -ms-scroll-snap-type: x mandatory; /* Old IE/Edge syntax: force snapping horizontally */
+  scroll-snap-type: x mandatory; /* Modern syntax: enable horizontal snap points */
+}
+
+.clients__opinion {
+  flex-basis: 100%; /* Each opinion takes 100% of the wrapper width */
+  flex-shrink: 0; /* Prevent shrinking — each opinion stays full width */
+  scroll-snap-align: start; /* Each opinion will snap neatly into view when scrolling */
+}

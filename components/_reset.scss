@@ -1,0 +1,42 @@
+* {
+  /* 
+  margin: 0; padding: 0; → removes browser default spacing.
+  font: inherit;→ forces every element (headings, inputs, buttons, etc.)
+    to inherit their font properties from their immediate parent.
+  */
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+*,
+*::before,
+*::after {
+  /* Total element width = the declared width (it includes padding + border */
+  box-sizing: border-box;
+}
+
+a {
+  /*
+  color: inherit; → makes the link text color match its parent’s text color
+    (instead of the default blue/purple).
+
+  display: inline-block; →Keeps the element inline (flows with text,
+    doesn’t break to a new line).
+  But unlike plain inline, it lets you set width, height, margin, and padding.
+  */
+  color: inherit;
+  display: inline-block;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  border: 0;
+}
+
+ul,
+ol {
+  list-style: none; /* removes the default bullets (•) */
+}

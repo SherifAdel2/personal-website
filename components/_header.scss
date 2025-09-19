@@ -1,0 +1,98 @@
+.header {
+  padding: 3rem 0;
+  display: flex; /* Makes the header a flex container (easy to align items in row). */
+  justify-content: center; /* Centers child elements horizontally inside the header. */
+  position: sticky; /* Makes the header “stick” to the top when scrolling. */
+  top: 0; /* Sticks to the very top of the viewport. */
+  background-color: var(--color-background);
+  z-index: 1; /* Ensures the header stays above other content (like images/text). */
+}
+
+.header::before {
+  content: ""; /* creates an empty pseudo-element */
+  position: absolute; /* positions it relative to the nearest positioned ancestor */
+  z-index: -1; /* places it behind the .header content */
+  height: 100%; /* makes it as tall as the .header */
+  width: 100vw; /* spans full viewport width */
+  border-bottom: 0.1rem solid var(--color-input-border);
+  background-color: var(--color-background);
+  /* top: 0rem;  exact alignment with top */
+  top: 0.1rem; /* slight offset from the top */
+}
+
+/* Navigation */
+.navigation {
+  transition: var(--transition-timing); /* for responsive screens */
+  background-color: var(--color-background); /* for responsive screens */
+}
+
+.navigation__list {
+  display: flex; /* makes children line up in a row by default */
+  gap: 2rem; /* adds 2rem spacing between flex items */
+}
+
+.navigation__link:link,
+.navigation__link:visited {
+  text-decoration: none; /* removes underline from both unvisited and visited links */
+  font-weight: var(--font-weight-medium);
+}
+
+.navigation__link:hover,
+.navigation__link:active {
+  text-decoration: underline;
+  color: var(--color-text);
+}
+
+.burger-menu__checkbox {
+  display: none;
+}
+
+/* Toggle Component */
+.toggle {
+  display: flex; /* /* makes children line up in a row by default */
+  gap: 1rem;
+  margin-left: auto;
+}
+
+.toggle__title {
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-18);
+}
+
+.toggle__label {
+  /* Checkbox is unchecked */
+  display: block; /* Makes the label behave like a block element (fills available width, can have height/width). */
+  position: relative; /* Sets a positioning context — often used because inside this label, you'll place the "knob" or circle with absolute positioning. */
+  background-color: var(--color-black);
+  padding: 0.3rem 0.4rem; /* Adds inner spacing inside the toggle (top/bottom: 0.3rem, left/right: 0.4rem). */
+  border-radius: 1.5rem; /* Rounds corners heavily → gives the switch a pill/oval shape. */
+  width: 4.5rem; /* Fixed width of the toggle switch. */
+  height: 2.2rem; /* Fixed height of the toggle switch. */
+  cursor: pointer; /* Changes cursor to hand (pointer) when hovering → indicates it's clickable. */
+  transition: background-color 0.3s; /* Smoothly animates background color changes (e.g., when toggled). */
+}
+
+.toggle__label::after {
+  /* Knob creation */
+  content: ""; /* Creates an empty pseudo-element that can be styled like a real element. */
+  width: 1.6rem; /* The knob’s width. */
+  height: 1.6rem; /* The knob’s height (same as width → perfect circle). */
+  border-radius: 50%; /* Rounds it into a circle. */
+  display: block; /* Makes it render as a block (so width/height apply). */
+  background-color: var(--color-white);
+  transition: 0.3s; /* Smooth animation when it moves/changes. */
+}
+
+.toggle__checkbox {
+  display: none; /* Hides the actual checkbox (we’ll style the label instead). */
+}
+
+.toggle__checkbox:checked + .toggle__label {
+  /* When checked, change the pill background color of the toggle label. */
+  background: var(--color-white);
+}
+
+.toggle__checkbox:checked + .toggle__label::after {
+  transform: translateX(2.1rem); /* Slides the knob to the right side. */
+  background: var(--color-green);
+}
