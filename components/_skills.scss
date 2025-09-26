@@ -1,35 +1,78 @@
-/* ========== SKILLS LIST ========== */
-.skills__list {
-  display: grid; /* Use CSS Grid to arrange skills in rows/columns */
-  grid-template-columns: repeat(
-    3,
-    1fr
-  ); /* Create 3 equal-width columns (1fr = 1 fraction of free space) */
-  row-gap: 5rem; /* Vertical space (gap) between rows = 5rem */
-}
+.skills {
+  /* ========== SKILLS LIST GRID ========== */
+  &__list {
+    display: grid; /* Arrange skills using CSS Grid */
+    grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
+    row-gap: 5rem; /* Vertical gap between rows */
+  }
 
-/* Each skill item */
-.skills__item {
-  transition: var(
-    --transition-timing
-  ); /* Apply smooth animation timing from a CSS variable */
-  user-select: none; /* Prevent text from being highlighted when clicked/dragged */
-}
+  /* ========== SKILL COLUMN (each skill item) ========== */
+  &__column {
+    position: relative; /* Needed so ::after underline positions correctly */
+    display: inline-block; /* Shrinks element width to content size */
+    transition: var(--transition-timing); /* Smooth animations */
+    user-select: none; /* Prevent text selection */
+  }
 
-/* The skill title (HTML, CSS, React, etc.) */
-.skills__title {
-  font-size: var(--font-size-38);
-  font-weight: var(--font-weight-semi-bold);
-}
+  /* ========== SKILL TITLE (name like HTML, CSS, etc.) ========== */
+  &__title {
+    font-size: var(--font-size-38);
+    font-weight: var(--font-weight-semi-bold);
+  }
 
-/* The "years of experience" under each title */
-.skills__years {
-  display: inline-block; /* Makes the span behave like a small block (respects margin/padding) */
-  font-size: var(--font-size-20); /* Slightly smaller text than title */
-  margin-top: 1rem; /* Push down from the title for spacing */
-}
+  /* ========== SKILL YEARS (experience text under title) ========== */
+  &__years {
+    display: inline-block; /* Allow margin + spacing */
+    font-size: var(--font-size-20);
+    margin-top: 1rem; /* Push down from title */
+  }
 
-/* Hover effect for each skill item */
-.skills__item:hover {
-  text-shadow: 0 0 2px var(--color-green);
+  /* ========== HOVER EFFECT ON SKILL ITEM ========== */
+  &__item:hover {
+    text-shadow: 0 0 2px var(--color-green); /* Glow effect */
+  }
+
+  /* ========== UNDERLINE EFFECT (added dynamically by JS) ========== */
+  .underline::after {
+    content: ''; /* Required for pseudo-element */
+    height: 0.6rem; /* Thickness of underline */
+    width: 60%; /* Underline length (60% of parent width) */
+    background: var(--color-text); /* Underline color */
+    position: absolute; /* Place relative to parent (.skills__column) */
+    left: 0; /* Align to left edge */
+    bottom: -20px; /* Push slightly below element */
+  }
+
+  /* ========== FILTER BUTTONS CONTAINER ========== */
+  &__filters {
+    grid-column: 1/-1; /* Span across full grid width */
+    margin-top: -8rem; /* Pull upwards */
+    display: flex; /* Flexbox layout */
+    gap: 1rem; /* Spacing between filter buttons */
+    justify-content: center; /* Center horizontally */
+  }
+
+  /* ========== FILTER BUTTONS (Frontend, Backend, etc.) ========== */
+  &__button {
+    border: 1px solid var(--color-text); /* Border with theme color */
+    border-radius: 0.4rem; /* Rounded corners */
+    padding: 0.2rem 1rem; /* Spacing inside button */
+    color: var(--color-text);
+
+    /* Active filter button state */
+    &--isActive {
+      background-color: var(--color-text); /* Filled background */
+      color: var(--color-background); /* Contrast text */
+    }
+  }
+
+  /* ========== FILTERING RULES (Frontend filter) ========== */
+  &__list.frontend li:not([data-type='frontend']) {
+    display: none; /* Hide all items not tagged as frontend */
+  }
+
+  /* ========== FILTERING RULES (Backend filter) ========== */
+  &__list.backend li:not([data-type='backend']) {
+    display: none; /* Hide all items not tagged as backend */
+  }
 }

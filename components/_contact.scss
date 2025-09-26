@@ -1,4 +1,4 @@
-@import "./mixins";
+@import './mixins';
 
 .contact {
   @include twoColumns(20rem, 0);
@@ -52,7 +52,7 @@
   }
 
   form:invalid::after {
-    content: "*";
+    content: '*';
     font-size: var(--font-size-38);
     color: var(--color-red);
   }

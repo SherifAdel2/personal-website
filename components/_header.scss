@@ -9,7 +9,7 @@
 }
 
 .header::before {
-  content: ""; /* creates an empty pseudo-element */
+  content: ''; /* creates an empty pseudo-element */
   position: absolute; /* positions it relative to the nearest positioned ancestor */
   z-index: -1; /* places it behind the .header content */
   height: 100%; /* makes it as tall as the .header */
@@ -74,7 +74,7 @@
 
 .toggle__label::after {
   /* Knob creation */
-  content: ""; /* Creates an empty pseudo-element that can be styled like a real element. */
+  content: ''; /* Creates an empty pseudo-element that can be styled like a real element. */
   width: 1.6rem; /* The knob’s width. */
   height: 1.6rem; /* The knob’s height (same as width → perfect circle). */
   border-radius: 50%; /* Rounds it into a circle. */

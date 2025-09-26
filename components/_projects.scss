@@ -1,4 +1,4 @@
-@import "./mixins";
+@import './mixins';
 
 .projects {
   &__main {
@@ -27,12 +27,22 @@
   }
 
   &__link::after {
-    content: "";
+    content: '';
     display: inline-block;
     width: 1.4rem;
     height: 1.4rem;
-    background-image: url("./images/external-icon.png");
+    background-image: url('./images/external-icon.png');
     background-size: contain;
     margin-left: 0.6rem;
+  }
+  .projects {
+    &__soon {
+      font-weight: bold; // makes it bold
+      text-align: center; // centers text horizontally
+      grid-column: 1 / -1; // span across both columns of the .section grid
+      display: block; // ensure block element (p already is)
+      margin: 2rem auto; // center with some vertical spacing
+      font-size: 1.8rem; // optional: make it stand out
+    }
   }
 }

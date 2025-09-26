@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -63,14 +63,19 @@
         <div class="toggle">
           <h3 class="toggle__title">Switch Theme</h3>
           <input id="toggle" class="toggle__checkbox" type="checkbox" />
-          <label class="toggle__label" for="toggle"></label>
+          <label
+            class="toggle__label"
+            for="toggle"
+            rule="button"
+            tabindex="0"
+          ></label>
         </div>
       </header>
 
       <section id="bio" class="section bio">
         <div class="bio__data">
           <h1 class="bio__heading">
-            Hi there, I’m <span class="bio__name">El-Sherif Adel</span>, A
+            Hi there, I’m <span class="bio__name">Elsherif Adel</span>, A
             Passionate Software Engineer.
           </h1>
           <p class="bio__objective">
@@ -80,15 +85,20 @@
             <a
               class="bio__facebook"
               href="https://www.facebook.com/share/19mhazrDE6/?mibextid=wwXIfr"
+              target="_blank"
               >Facebook</a
             >,
             <a
               class="bio__linkedin"
               href="https://www.linkedin.com/in/sherif-adel-2b5517280/"
+              target="_blank"
               >LinkedIn</a
             >
             and
-            <a class="bio__github" href="https://github.com/SherifAdel22"
+            <a
+              class="bio__github"
+              href="https://github.com/SherifAdel2"
+              target="_blank"
               >GitHub</a
             >.
           </p>
@@ -109,7 +119,18 @@
       <section id="skills" class="section skills section--with-bg">
         <h2 class="h2-heading">Skills</h2>
 
-        <ul class="skills__list">
+        <div class="skills__filters">
+          <button
+            class="skills__button skills__button--isActive"
+            data-type="all"
+          >
+            All
+          </button>
+          <button class="skills__button" data-type="frontend">Frontend</button>
+          <button class="skills__button" data-type="backend">Backend</button>
+        </div>
+
+        <!-- <ul class="skills__list">
           <li class="skills__column">
             <h2 class="skills__title">HTML</h2>
             <span class="skills__years">1 years</span>
@@ -118,7 +139,7 @@
             <h2 class="skills__title">CSS</h2>
             <span class="skills__years">1 years</span>
           </li>
-          <li class="skills__column">
+          <li class="skills__column" data-name="javaScript">
             <h2 class="skills__title">Javascript</h2>
             <span class="skills__years">1 years</span>
           </li>
@@ -146,7 +167,7 @@
             <h2 class="skills__title">React testing library</h2>
             <span class="skills__years">Not yet</span>
           </li>
-        </ul>
+        </ul> -->
       </section>
 
       <section id="media" class="section media">
@@ -164,7 +185,7 @@
           MY FEATURED <br />
           PROJECTS
         </h2>
-        <p class="projects__soon">Coming soon</p>
+        <p class="projects__soon">Coming soon ⏳</p>
       </section>
 
       <section id="clients" class="section clients section--with-bg">
@@ -281,5 +302,9 @@
         © 2025 El-Sherif Adel | With the aid of Mohamed Abusraia
       </footer>
     </div>
+    <!-- <script src="./scripts/draft.js"></script> -->
+    <script src="./scripts/skills.js"></script>
+    <script src="./scripts/toggle-button.js"></script>
+    <script src="./scripts/script.js"></script>
   </body>
 </html>

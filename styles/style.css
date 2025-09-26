@@ -17,6 +17,7 @@
   --color-box-img: var(--color-black);
   --color-link-bg: var(--color-black);
   --color-input-border: var(--color-black);
+  --color-filter-button: var(--color-white);
   --font-family-raleway: "Raleway", sans-serif;
   --font-family-poppins: "Poppins", sans-serif;
   --font-weight-regular: 400;
@@ -327,35 +328,73 @@ body,
   width: 42.7rem;
 }
 
-/* ========== SKILLS LIST ========== */
+.skills {
+  /* ========== SKILLS LIST GRID ========== */
+  /* ========== SKILL COLUMN (each skill item) ========== */
+  /* ========== SKILL TITLE (name like HTML, CSS, etc.) ========== */
+  /* ========== SKILL YEARS (experience text under title) ========== */
+  /* ========== HOVER EFFECT ON SKILL ITEM ========== */
+  /* ========== UNDERLINE EFFECT (added dynamically by JS) ========== */
+  /* ========== FILTER BUTTONS CONTAINER ========== */
+  /* ========== FILTER BUTTONS (Frontend, Backend, etc.) ========== */
+  /* ========== FILTERING RULES (Frontend filter) ========== */
+  /* ========== FILTERING RULES (Backend filter) ========== */
+}
 .skills__list {
-  display: grid; /* Use CSS Grid to arrange skills in rows/columns */
-  grid-template-columns: repeat(3, 1fr); /* Create 3 equal-width columns (1fr = 1 fraction of free space) */
-  row-gap: 5rem; /* Vertical space (gap) between rows = 5rem */
+  display: grid; /* Arrange skills using CSS Grid */
+  grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
+  row-gap: 5rem; /* Vertical gap between rows */
 }
-
-/* Each skill item */
-.skills__item {
-  transition: var(--transition-timing); /* Apply smooth animation timing from a CSS variable */
-  user-select: none; /* Prevent text from being highlighted when clicked/dragged */
+.skills__column {
+  position: relative; /* Needed so ::after underline positions correctly */
+  display: inline-block; /* Shrinks element width to content size */
+  transition: var(--transition-timing); /* Smooth animations */
+  user-select: none; /* Prevent text selection */
 }
-
-/* The skill title (HTML, CSS, React, etc.) */
 .skills__title {
   font-size: var(--font-size-38);
   font-weight: var(--font-weight-semi-bold);
 }
-
-/* The "years of experience" under each title */
 .skills__years {
-  display: inline-block; /* Makes the span behave like a small block (respects margin/padding) */
-  font-size: var(--font-size-20); /* Slightly smaller text than title */
-  margin-top: 1rem; /* Push down from the title for spacing */
+  display: inline-block; /* Allow margin + spacing */
+  font-size: var(--font-size-20);
+  margin-top: 1rem; /* Push down from title */
 }
-
-/* Hover effect for each skill item */
 .skills__item:hover {
-  text-shadow: 0 0 2px var(--color-green);
+  text-shadow: 0 0 2px var(--color-green); /* Glow effect */
+}
+.skills .underline::after {
+  content: ""; /* Required for pseudo-element */
+  height: 0.6rem; /* Thickness of underline */
+  width: 60%; /* Underline length (60% of parent width) */
+  background: var(--color-text); /* Underline color */
+  position: absolute; /* Place relative to parent (.skills__column) */
+  left: 0; /* Align to left edge */
+  bottom: -20px; /* Push slightly below element */
+}
+.skills__filters {
+  grid-column: 1/-1; /* Span across full grid width */
+  margin-top: -8rem; /* Pull upwards */
+  display: flex; /* Flexbox layout */
+  gap: 1rem; /* Spacing between filter buttons */
+  justify-content: center; /* Center horizontally */
+}
+.skills__button {
+  border: 1px solid var(--color-text); /* Border with theme color */
+  border-radius: 0.4rem; /* Rounded corners */
+  padding: 0.2rem 1rem; /* Spacing inside button */
+  color: var(--color-text);
+  /* Active filter button state */
+}
+.skills__button--isActive {
+  background-color: var(--color-text); /* Filled background */
+  color: var(--color-background); /* Contrast text */
+}
+.skills__list.frontend li:not([data-type=frontend]) {
+  display: none; /* Hide all items not tagged as frontend */
+}
+.skills__list.backend li:not([data-type=backend]) {
+  display: none; /* Hide all items not tagged as backend */
 }
 
 .media {
@@ -397,6 +436,14 @@ body,
   background-image: url("./images/external-icon.png");
   background-size: contain;
   margin-left: 0.6rem;
+}
+.projects .projects__soon {
+  font-weight: bold;
+  text-align: center;
+  grid-column: 1/-1;
+  display: block;
+  margin: 2rem auto;
+  font-size: 1.8rem;
 }
 
 .clients__opinions {

@@ -1,4 +1,4 @@
-@import "./mixins";
+@import './mixins';
 
 .bio {
   @include twoColumns(7.4rem, 0);
@@ -80,7 +80,7 @@
   }
 
   &__pic-content::before {
-    content: "";
+    content: '';
     position: absolute;
     background-color: var(--color-box-img);
     width: 100%;
