@@ -11,7 +11,7 @@
     position: relative; /* Needed so ::after underline positions correctly */
     display: inline-block; /* Shrinks element width to content size */
     transition: var(--transition-timing); /* Smooth animations */
-    user-select: none; /* Prevent text selection */
+    // user-select: none; /* Prevent text selection */
   }
 
   /* ========== SKILL TITLE (name like HTML, CSS, etc.) ========== */

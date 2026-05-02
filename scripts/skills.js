@@ -82,6 +82,11 @@ const skillsArray = [
     experience: '2025',
     type: 'backend',
   },
+  {
+    name: 'Supabase',
+    experience: '2025',
+    type: 'backend',
+  },
 ];
 /* 
   Add skills dynamically 
@@ -115,6 +120,7 @@ const activatingButton = (button) => {
     ?.classList.remove('skills__button--isActive');
   button.classList.add('skills__button--isActive');
 };
+
 const buttonFiltering = (button) => {
   const ButtonDataType = button.dataset.type;
   const skillsListUl = document.querySelector('.skills__list');

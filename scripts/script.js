@@ -1,4 +1,4 @@
-let family = ['Adel', 'Sabah', 'Mai', 'Elsherif'];
+let family = ['Adel', 'Sabah', 'Elsherif'];
 //family.forEach((value, index, arr) => (arr[index] += ' Basha'));
 let people = family.map((value) => value + ' Basha1');
 // console.log(people);
